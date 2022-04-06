@@ -1,0 +1,3 @@
+"ConnectionStrings": {
+    "AzureConnection": "Server=tcp:mis3980.database.windows.net,1433;Initial Catalog=Kahuna;Persist Security Info=False;User ID=KahunaAdmin;Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;",
+    "LocalConnection": "Server=localhost\\SQLEXPRESS; Database=Kahuna; Trusted_Connection=True;"
