@@ -4,7 +4,23 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e2734f4d69f6455aa1feef7b49c02a57" Name="Diagram1" />
+      <Diagram DiagramId="d8779304a613458086fca3b49cca54ba" Name="Diagram1">
+        <EntityTypeShape EntityType="DB_128040_faaModel.Course" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_128040_faaModel.CourseHistory" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_128040_faaModel.Instructor" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_128040_faaModel.InstructorHistory" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_128040_faaModel.Lesson" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_128040_faaModel.LessonHistory" Width="1.5" PointX="5.25" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_128040_faaModel.PCN" Width="1.5" PointX="6" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_128040_faaModel.PCNHistory" Width="1.5" PointX="8.25" PointY="4" IsExpanded="true" />
+        <AssociationConnector Association="DB_128040_faaModel.FK__CourseHis__Cours__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_128040_faaModel.FK__Lesson__CourseNo__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_128040_faaModel.FK__PCN__CourseNo__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_128040_faaModel.FK__Instructo__Instr__267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_128040_faaModel.FK__PCN__InstructorI__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_128040_faaModel.FK__LessonHis__Lesso__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_128040_faaModel.FK__PCNHistor__PCNID__31EC6D26" ManuallyRouted="false" />
+      </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

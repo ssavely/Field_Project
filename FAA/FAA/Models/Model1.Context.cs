@@ -13,10 +13,10 @@ namespace FAA.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DB_128040_faaEntities : DbContext
+    public partial class DB_128040_faaEntities1 : DbContext
     {
-        public DB_128040_faaEntities()
-            : base("name=DB_128040_faaEntities")
+        public DB_128040_faaEntities1()
+            : base("name=DB_128040_faaEntities1")
         {
         }
     
@@ -25,5 +25,13 @@ namespace FAA.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Course> Courses { get; set; }
+        public virtual DbSet<CourseHistory> CourseHistories { get; set; }
+        public virtual DbSet<Instructor> Instructors { get; set; }
+        public virtual DbSet<InstructorHistory> InstructorHistories { get; set; }
+        public virtual DbSet<Lesson> Lessons { get; set; }
+        public virtual DbSet<LessonHistory> LessonHistories { get; set; }
+        public virtual DbSet<PCN> PCNs { get; set; }
+        public virtual DbSet<PCNHistory> PCNHistories { get; set; }
     }
 }

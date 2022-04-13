@@ -13,17 +13,21 @@ namespace FAA.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Create()
         {
-            ViewBag.Message = "Your application description page.";
+            
 
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Open()
         {
-            ViewBag.Message = "Your contact page.";
+          
 
+            return View();
+        }
+        public ActionResult Old()
+        {
             return View();
         }
     }

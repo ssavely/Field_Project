@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DB_128040_faaModelStoreContainer" CdmEntityContainer="DB_128040_faaEntities1">
+    <EntitySetMapping Name="Courses">
+      <EntityTypeMapping TypeName="DB_128040_faaModel.Course">
+        <MappingFragment StoreEntitySet="Course">
+          <ScalarProperty Name="CourseNo" ColumnName="CourseNo" />
+          <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CourseHistories">
+      <EntityTypeMapping TypeName="DB_128040_faaModel.CourseHistory">
+        <MappingFragment StoreEntitySet="CourseHistory">
+          <ScalarProperty Name="CHID" ColumnName="CHID" />
+          <ScalarProperty Name="CourseNo" ColumnName="CourseNo" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ChangeDate" ColumnName="ChangeDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Instructors">
+      <EntityTypeMapping TypeName="DB_128040_faaModel.Instructor">
+        <MappingFragment StoreEntitySet="Instructor">
+          <ScalarProperty Name="InstructorID" ColumnName="InstructorID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="Level" ColumnName="Level" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InstructorHistories">
+      <EntityTypeMapping TypeName="DB_128040_faaModel.InstructorHistory">
+        <MappingFragment StoreEntitySet="InstructorHistory">
+          <ScalarProperty Name="IHID" ColumnName="IHID" />
+          <ScalarProperty Name="InstructorID" ColumnName="InstructorID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ChangeDate" ColumnName="ChangeDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lessons">
+      <EntityTypeMapping TypeName="DB_128040_faaModel.Lesson">
+        <MappingFragment StoreEntitySet="Lesson">
+          <ScalarProperty Name="LessonID" ColumnName="LessonID" />
+          <ScalarProperty Name="CourseNo" ColumnName="CourseNo" />
+          <ScalarProperty Name="LessonTitle" ColumnName="LessonTitle" />
+          <ScalarProperty Name="LessonTag" ColumnName="LessonTag" />
+          <ScalarProperty Name="LessonNo" ColumnName="LessonNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LessonHistories">
+      <EntityTypeMapping TypeName="DB_128040_faaModel.LessonHistory">
+        <MappingFragment StoreEntitySet="LessonHistory">
+          <ScalarProperty Name="LHID" ColumnName="LHID" />
+          <ScalarProperty Name="LessonID" ColumnName="LessonID" />
+          <ScalarProperty Name="ChangeDate" ColumnName="ChangeDate" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PCNs">
+      <EntityTypeMapping TypeName="DB_128040_faaModel.PCN">
+        <MappingFragment StoreEntitySet="PCN">
+          <ScalarProperty Name="PCNID" ColumnName="PCNID" />
+          <ScalarProperty Name="CourseNo" ColumnName="CourseNo" />
+          <ScalarProperty Name="InstructorID" ColumnName="InstructorID" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PCNHistories">
+      <EntityTypeMapping TypeName="DB_128040_faaModel.PCNHistory">
+        <MappingFragment StoreEntitySet="PCNHistory">
+          <ScalarProperty Name="PHID" ColumnName="PHID" />
+          <ScalarProperty Name="PCNID" ColumnName="PCNID" />
+          <ScalarProperty Name="ChangeDate" ColumnName="ChangeDate" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
