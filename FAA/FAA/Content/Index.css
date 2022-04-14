@@ -5,17 +5,8 @@
     
 }
 
-.row:hover {
-    background-color: cornflowerblue;
-    transition: transform 1.5s ease-in-out;
-}
-#btn2:hover {
-    background-color: cornflowerblue;
-    transition: transform 1.5s ease-in-out;
-}
-#btn3:hover {
-    background-color: cornflowerblue;
-    transition: transform 1.5s ease-in-out;
+.row{
+    padding-top: 50px;
 }
 body {
 }
