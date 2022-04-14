@@ -178,6 +178,10 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Create.css" />
+    <Content Include="Content\Index.css" />
+    <Content Include="Content\Old.css" />
+    <Content Include="Content\Open.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
