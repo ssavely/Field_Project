@@ -21,7 +21,7 @@ namespace FAA.Models
         }
     
         public int PCNID { get; set; }
-        public int CourseNo { get; set; }
+        public int CourseID { get; set; }
         public int InstructorID { get; set; }
         public System.DateTime StartDate { get; set; }
         public System.DateTime EndDate { get; set; }

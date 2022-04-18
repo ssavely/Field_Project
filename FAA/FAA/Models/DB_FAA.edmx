@@ -1,0 +1,545 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DB_128040_faaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Course">
+          <Key>
+            <PropertyRef Name="CourseID" />
+          </Key>
+          <Property Name="CourseID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CoursNo" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="CourseName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="DateTime" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CourseHistory">
+          <Key>
+            <PropertyRef Name="CHID" />
+          </Key>
+          <Property Name="CHID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CourseID" Type="int" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="ChangeDate" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Instructor">
+          <Key>
+            <PropertyRef Name="InstructorID" />
+          </Key>
+          <Property Name="InstructorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Role" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Level" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InstructorHistory">
+          <Key>
+            <PropertyRef Name="IHID" />
+          </Key>
+          <Property Name="IHID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InstructorID" Type="int" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="ChangeDate" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Lesson">
+          <Key>
+            <PropertyRef Name="LessonID" />
+          </Key>
+          <Property Name="LessonID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CourseID" Type="int" Nullable="false" />
+          <Property Name="LessonTitle" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="LessonTag" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="LessonNo" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LessonHistory">
+          <Key>
+            <PropertyRef Name="LHID" />
+          </Key>
+          <Property Name="LHID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LessonID" Type="int" Nullable="false" />
+          <Property Name="ChangeDate" Type="date" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PCN">
+          <Key>
+            <PropertyRef Name="PCNID" />
+          </Key>
+          <Property Name="PCNID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CourseID" Type="int" Nullable="false" />
+          <Property Name="InstructorID" Type="int" Nullable="false" />
+          <Property Name="StartDate" Type="date" Nullable="false" />
+          <Property Name="EndDate" Type="date" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="IsApproved" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PCNHistory">
+          <Key>
+            <PropertyRef Name="PHID" />
+          </Key>
+          <Property Name="PHID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PCNID" Type="int" Nullable="false" />
+          <Property Name="ChangeDate" Type="date" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__CourseHis__Cours__3E52440B">
+          <End Role="Course" Type="Self.Course" Multiplicity="1" />
+          <End Role="CourseHistory" Type="Self.CourseHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="CourseID" />
+            </Principal>
+            <Dependent Role="CourseHistory">
+              <PropertyRef Name="CourseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Instructo__Instr__267ABA7A">
+          <End Role="Instructor" Type="Self.Instructor" Multiplicity="1" />
+          <End Role="InstructorHistory" Type="Self.InstructorHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Instructor">
+              <PropertyRef Name="InstructorID" />
+            </Principal>
+            <Dependent Role="InstructorHistory">
+              <PropertyRef Name="InstructorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Lesson__CourseID__412EB0B6">
+          <End Role="Course" Type="Self.Course" Multiplicity="1" />
+          <End Role="Lesson" Type="Self.Lesson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="CourseID" />
+            </Principal>
+            <Dependent Role="Lesson">
+              <PropertyRef Name="CourseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LessonHis__Lesso__440B1D61">
+          <End Role="Lesson" Type="Self.Lesson" Multiplicity="1" />
+          <End Role="LessonHistory" Type="Self.LessonHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lesson">
+              <PropertyRef Name="LessonID" />
+            </Principal>
+            <Dependent Role="LessonHistory">
+              <PropertyRef Name="LessonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PCN__CourseNo__46E78A0C">
+          <End Role="Course" Type="Self.Course" Multiplicity="1" />
+          <End Role="PCN" Type="Self.PCN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="CourseID" />
+            </Principal>
+            <Dependent Role="PCN">
+              <PropertyRef Name="CourseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PCN__InstructorI__47DBAE45">
+          <End Role="Instructor" Type="Self.Instructor" Multiplicity="1" />
+          <End Role="PCN" Type="Self.PCN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Instructor">
+              <PropertyRef Name="InstructorID" />
+            </Principal>
+            <Dependent Role="PCN">
+              <PropertyRef Name="InstructorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PCNHistor__PCNID__4AB81AF0">
+          <End Role="PCN" Type="Self.PCN" Multiplicity="1" />
+          <End Role="PCNHistory" Type="Self.PCNHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PCN">
+              <PropertyRef Name="PCNID" />
+            </Principal>
+            <Dependent Role="PCNHistory">
+              <PropertyRef Name="PCNID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DB_128040_faaModelStoreContainer">
+          <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CourseHistory" EntityType="Self.CourseHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Instructor" EntityType="Self.Instructor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InstructorHistory" EntityType="Self.InstructorHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Lesson" EntityType="Self.Lesson" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LessonHistory" EntityType="Self.LessonHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PCN" EntityType="Self.PCN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PCNHistory" EntityType="Self.PCNHistory" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__CourseHis__Cours__3E52440B" Association="Self.FK__CourseHis__Cours__3E52440B">
+            <End Role="Course" EntitySet="Course" />
+            <End Role="CourseHistory" EntitySet="CourseHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Instructo__Instr__267ABA7A" Association="Self.FK__Instructo__Instr__267ABA7A">
+            <End Role="Instructor" EntitySet="Instructor" />
+            <End Role="InstructorHistory" EntitySet="InstructorHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Lesson__CourseID__412EB0B6" Association="Self.FK__Lesson__CourseID__412EB0B6">
+            <End Role="Course" EntitySet="Course" />
+            <End Role="Lesson" EntitySet="Lesson" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LessonHis__Lesso__440B1D61" Association="Self.FK__LessonHis__Lesso__440B1D61">
+            <End Role="Lesson" EntitySet="Lesson" />
+            <End Role="LessonHistory" EntitySet="LessonHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PCN__CourseNo__46E78A0C" Association="Self.FK__PCN__CourseNo__46E78A0C">
+            <End Role="Course" EntitySet="Course" />
+            <End Role="PCN" EntitySet="PCN" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PCN__InstructorI__47DBAE45" Association="Self.FK__PCN__InstructorI__47DBAE45">
+            <End Role="Instructor" EntitySet="Instructor" />
+            <End Role="PCN" EntitySet="PCN" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PCNHistor__PCNID__4AB81AF0" Association="Self.FK__PCNHistor__PCNID__4AB81AF0">
+            <End Role="PCN" EntitySet="PCN" />
+            <End Role="PCNHistory" EntitySet="PCNHistory" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_128040_faaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Course">
+          <Key>
+            <PropertyRef Name="CourseID" />
+          </Key>
+          <Property Name="CourseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CoursNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CourseName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="CourseHistories" Relationship="Self.FK__CourseHis__Cours__3E52440B" FromRole="Course" ToRole="CourseHistory" />
+          <NavigationProperty Name="Lessons" Relationship="Self.FK__Lesson__CourseID__412EB0B6" FromRole="Course" ToRole="Lesson" />
+          <NavigationProperty Name="PCNs" Relationship="Self.FK__PCN__CourseNo__46E78A0C" FromRole="Course" ToRole="PCN" />
+        </EntityType>
+        <EntityType Name="CourseHistory">
+          <Key>
+            <PropertyRef Name="CHID" />
+          </Key>
+          <Property Name="CHID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CourseID" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ChangeDate" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Course" Relationship="Self.FK__CourseHis__Cours__3E52440B" FromRole="CourseHistory" ToRole="Course" />
+        </EntityType>
+        <EntityType Name="Instructor">
+          <Key>
+            <PropertyRef Name="InstructorID" />
+          </Key>
+          <Property Name="InstructorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Role" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Level" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="InstructorHistories" Relationship="Self.FK__Instructo__Instr__267ABA7A" FromRole="Instructor" ToRole="InstructorHistory" />
+          <NavigationProperty Name="PCNs" Relationship="Self.FK__PCN__InstructorI__47DBAE45" FromRole="Instructor" ToRole="PCN" />
+        </EntityType>
+        <EntityType Name="InstructorHistory">
+          <Key>
+            <PropertyRef Name="IHID" />
+          </Key>
+          <Property Name="IHID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InstructorID" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ChangeDate" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Instructor" Relationship="Self.FK__Instructo__Instr__267ABA7A" FromRole="InstructorHistory" ToRole="Instructor" />
+        </EntityType>
+        <EntityType Name="Lesson">
+          <Key>
+            <PropertyRef Name="LessonID" />
+          </Key>
+          <Property Name="LessonID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CourseID" Type="Int32" Nullable="false" />
+          <Property Name="LessonTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LessonTag" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LessonNo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Course" Relationship="Self.FK__Lesson__CourseID__412EB0B6" FromRole="Lesson" ToRole="Course" />
+          <NavigationProperty Name="LessonHistories" Relationship="Self.FK__LessonHis__Lesso__440B1D61" FromRole="Lesson" ToRole="LessonHistory" />
+        </EntityType>
+        <EntityType Name="LessonHistory">
+          <Key>
+            <PropertyRef Name="LHID" />
+          </Key>
+          <Property Name="LHID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LessonID" Type="Int32" Nullable="false" />
+          <Property Name="ChangeDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Lesson" Relationship="Self.FK__LessonHis__Lesso__440B1D61" FromRole="LessonHistory" ToRole="Lesson" />
+        </EntityType>
+        <EntityType Name="PCN">
+          <Key>
+            <PropertyRef Name="PCNID" />
+          </Key>
+          <Property Name="PCNID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CourseID" Type="Int32" Nullable="false" />
+          <Property Name="InstructorID" Type="Int32" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsApproved" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Course" Relationship="Self.FK__PCN__CourseNo__46E78A0C" FromRole="PCN" ToRole="Course" />
+          <NavigationProperty Name="Instructor" Relationship="Self.FK__PCN__InstructorI__47DBAE45" FromRole="PCN" ToRole="Instructor" />
+          <NavigationProperty Name="PCNHistories" Relationship="Self.FK__PCNHistor__PCNID__4AB81AF0" FromRole="PCN" ToRole="PCNHistory" />
+        </EntityType>
+        <EntityType Name="PCNHistory">
+          <Key>
+            <PropertyRef Name="PHID" />
+          </Key>
+          <Property Name="PHID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PCNID" Type="Int32" Nullable="false" />
+          <Property Name="ChangeDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="PCN" Relationship="Self.FK__PCNHistor__PCNID__4AB81AF0" FromRole="PCNHistory" ToRole="PCN" />
+        </EntityType>
+        <Association Name="FK__CourseHis__Cours__3E52440B">
+          <End Role="Course" Type="Self.Course" Multiplicity="1" />
+          <End Role="CourseHistory" Type="Self.CourseHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="CourseID" />
+            </Principal>
+            <Dependent Role="CourseHistory">
+              <PropertyRef Name="CourseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Lesson__CourseID__412EB0B6">
+          <End Role="Course" Type="Self.Course" Multiplicity="1" />
+          <End Role="Lesson" Type="Self.Lesson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="CourseID" />
+            </Principal>
+            <Dependent Role="Lesson">
+              <PropertyRef Name="CourseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PCN__CourseNo__46E78A0C">
+          <End Role="Course" Type="Self.Course" Multiplicity="1" />
+          <End Role="PCN" Type="Self.PCN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="CourseID" />
+            </Principal>
+            <Dependent Role="PCN">
+              <PropertyRef Name="CourseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Instructo__Instr__267ABA7A">
+          <End Role="Instructor" Type="Self.Instructor" Multiplicity="1" />
+          <End Role="InstructorHistory" Type="Self.InstructorHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Instructor">
+              <PropertyRef Name="InstructorID" />
+            </Principal>
+            <Dependent Role="InstructorHistory">
+              <PropertyRef Name="InstructorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PCN__InstructorI__47DBAE45">
+          <End Role="Instructor" Type="Self.Instructor" Multiplicity="1" />
+          <End Role="PCN" Type="Self.PCN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Instructor">
+              <PropertyRef Name="InstructorID" />
+            </Principal>
+            <Dependent Role="PCN">
+              <PropertyRef Name="InstructorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LessonHis__Lesso__440B1D61">
+          <End Role="Lesson" Type="Self.Lesson" Multiplicity="1" />
+          <End Role="LessonHistory" Type="Self.LessonHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lesson">
+              <PropertyRef Name="LessonID" />
+            </Principal>
+            <Dependent Role="LessonHistory">
+              <PropertyRef Name="LessonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PCNHistor__PCNID__4AB81AF0">
+          <End Role="PCN" Type="Self.PCN" Multiplicity="1" />
+          <End Role="PCNHistory" Type="Self.PCNHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PCN">
+              <PropertyRef Name="PCNID" />
+            </Principal>
+            <Dependent Role="PCNHistory">
+              <PropertyRef Name="PCNID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DB_128040_faaEntities3" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Courses" EntityType="Self.Course" />
+          <EntitySet Name="CourseHistories" EntityType="Self.CourseHistory" />
+          <EntitySet Name="Instructors" EntityType="Self.Instructor" />
+          <EntitySet Name="InstructorHistories" EntityType="Self.InstructorHistory" />
+          <EntitySet Name="Lessons" EntityType="Self.Lesson" />
+          <EntitySet Name="LessonHistories" EntityType="Self.LessonHistory" />
+          <EntitySet Name="PCNs" EntityType="Self.PCN" />
+          <EntitySet Name="PCNHistories" EntityType="Self.PCNHistory" />
+          <AssociationSet Name="FK__CourseHis__Cours__3E52440B" Association="Self.FK__CourseHis__Cours__3E52440B">
+            <End Role="Course" EntitySet="Courses" />
+            <End Role="CourseHistory" EntitySet="CourseHistories" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Lesson__CourseID__412EB0B6" Association="Self.FK__Lesson__CourseID__412EB0B6">
+            <End Role="Course" EntitySet="Courses" />
+            <End Role="Lesson" EntitySet="Lessons" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PCN__CourseNo__46E78A0C" Association="Self.FK__PCN__CourseNo__46E78A0C">
+            <End Role="Course" EntitySet="Courses" />
+            <End Role="PCN" EntitySet="PCNs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Instructo__Instr__267ABA7A" Association="Self.FK__Instructo__Instr__267ABA7A">
+            <End Role="Instructor" EntitySet="Instructors" />
+            <End Role="InstructorHistory" EntitySet="InstructorHistories" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PCN__InstructorI__47DBAE45" Association="Self.FK__PCN__InstructorI__47DBAE45">
+            <End Role="Instructor" EntitySet="Instructors" />
+            <End Role="PCN" EntitySet="PCNs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LessonHis__Lesso__440B1D61" Association="Self.FK__LessonHis__Lesso__440B1D61">
+            <End Role="Lesson" EntitySet="Lessons" />
+            <End Role="LessonHistory" EntitySet="LessonHistories" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PCNHistor__PCNID__4AB81AF0" Association="Self.FK__PCNHistor__PCNID__4AB81AF0">
+            <End Role="PCN" EntitySet="PCNs" />
+            <End Role="PCNHistory" EntitySet="PCNHistories" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_128040_faaModelStoreContainer" CdmEntityContainer="DB_128040_faaEntities3">
+          <EntitySetMapping Name="Courses">
+            <EntityTypeMapping TypeName="DB_128040_faaModel.Course">
+              <MappingFragment StoreEntitySet="Course">
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="CoursNo" ColumnName="CoursNo" />
+                <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CourseHistories">
+            <EntityTypeMapping TypeName="DB_128040_faaModel.CourseHistory">
+              <MappingFragment StoreEntitySet="CourseHistory">
+                <ScalarProperty Name="CHID" ColumnName="CHID" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ChangeDate" ColumnName="ChangeDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Instructors">
+            <EntityTypeMapping TypeName="DB_128040_faaModel.Instructor">
+              <MappingFragment StoreEntitySet="Instructor">
+                <ScalarProperty Name="InstructorID" ColumnName="InstructorID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InstructorHistories">
+            <EntityTypeMapping TypeName="DB_128040_faaModel.InstructorHistory">
+              <MappingFragment StoreEntitySet="InstructorHistory">
+                <ScalarProperty Name="IHID" ColumnName="IHID" />
+                <ScalarProperty Name="InstructorID" ColumnName="InstructorID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ChangeDate" ColumnName="ChangeDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lessons">
+            <EntityTypeMapping TypeName="DB_128040_faaModel.Lesson">
+              <MappingFragment StoreEntitySet="Lesson">
+                <ScalarProperty Name="LessonID" ColumnName="LessonID" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="LessonTitle" ColumnName="LessonTitle" />
+                <ScalarProperty Name="LessonTag" ColumnName="LessonTag" />
+                <ScalarProperty Name="LessonNo" ColumnName="LessonNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LessonHistories">
+            <EntityTypeMapping TypeName="DB_128040_faaModel.LessonHistory">
+              <MappingFragment StoreEntitySet="LessonHistory">
+                <ScalarProperty Name="LHID" ColumnName="LHID" />
+                <ScalarProperty Name="LessonID" ColumnName="LessonID" />
+                <ScalarProperty Name="ChangeDate" ColumnName="ChangeDate" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PCNs">
+            <EntityTypeMapping TypeName="DB_128040_faaModel.PCN">
+              <MappingFragment StoreEntitySet="PCN">
+                <ScalarProperty Name="PCNID" ColumnName="PCNID" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="InstructorID" ColumnName="InstructorID" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PCNHistories">
+            <EntityTypeMapping TypeName="DB_128040_faaModel.PCNHistory">
+              <MappingFragment StoreEntitySet="PCNHistory">
+                <ScalarProperty Name="PHID" ColumnName="PHID" />
+                <ScalarProperty Name="PCNID" ColumnName="PCNID" />
+                <ScalarProperty Name="ChangeDate" ColumnName="ChangeDate" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -21,7 +21,7 @@ namespace FAA.Models
         }
     
         public int LessonID { get; set; }
-        public int CourseNo { get; set; }
+        public int CourseID { get; set; }
         public string LessonTitle { get; set; }
         public string LessonTag { get; set; }
         public string LessonNo { get; set; }

@@ -15,7 +15,7 @@ namespace FAA.Models
     public partial class CourseHistory
     {
         public int CHID { get; set; }
-        public int CourseNo { get; set; }
+        public int CourseID { get; set; }
         public string Description { get; set; }
         public System.DateTime ChangeDate { get; set; }
     

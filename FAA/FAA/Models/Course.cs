@@ -22,7 +22,8 @@ namespace FAA.Models
             this.PCNs = new HashSet<PCN>();
         }
     
-        public int CourseNo { get; set; }
+        public int CourseID { get; set; }
+        public string CoursNo { get; set; }
         public string CourseName { get; set; }
         public string Description { get; set; }
         public System.DateTime DateTime { get; set; }
