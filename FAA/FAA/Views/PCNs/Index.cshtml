@@ -1,0 +1,65 @@
+﻿@model IEnumerable<FAA.Models.PCN>
+
+@{
+    ViewBag.Title = "All PCNs";
+}
+
+<h2>All PCNs</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PCNID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsApproved)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Course.CourseID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Instructor.InstructorID)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsApproved)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Course.CourseID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Instructor.InstructorID)
+            </td>
+        </tr>
+    }
+
+</table>
+<footer style="padding-top: 50px;">
+    <p><a style="background-color: lightgray;" class="btn btn-default" href="https://localhost:44344/Home">Return to Home</a></p>
+</footer>
+

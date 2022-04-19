@@ -7,62 +7,50 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using FAA.Models;
-using FAA.ViewModel;
 
 namespace FAA.Controllers
 {
-    public class PCNsController : Controller
+    public class PCNssss1Controller : Controller
     {
         private DB_128040_faaEntities4 db = new DB_128040_faaEntities4();
 
-        // GET: PCNs
+        // GET: PCNssss1
         public ActionResult Index()
         {
             var pCNs = db.PCNs.Include(p => p.Course).Include(p => p.Instructor);
             return View(pCNs.ToList());
         }
-        public ActionResult Open()
+
+        // GET: PCNssss1/Details/5
+        public ActionResult Details(int? id)
         {
-            var tables = new FAADatabaseClass();
-
-            tables.instructors = db.Instructors.ToList();
-            tables.pcns = db.PCNs.ToList();
-            tables.courses = db.Courses.ToList();
-            tables.lessons = db.Lessons.ToList();
-
-            return View(tables);
-        }
-        public ActionResult ClosedPCN()
-        {
-            var tables = new FAADatabaseClass();
-
-            tables.instructors = db.Instructors.ToList();
-            tables.pcns = db.PCNs.ToList();
-            tables.courses = db.Courses.ToList();
-            tables.lessons = db.Lessons.ToList();
-
-            return View(tables);
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            PCN pCN = db.PCNs.Find(id);
+            if (pCN == null)
+            {
+                return HttpNotFound();
+            }
+            return View(pCN);
         }
 
-        // GET: PCNs/Create
+        // GET: PCNssss1/Create
         public ActionResult Create()
         {
-
-            ViewBag.CourseID = new SelectList(db.Courses, "CourseID", "CourseID");
-            ViewBag.InstructorID = new SelectList(db.Instructors, "InstructorID", "InstructorID");
-
-
+            ViewBag.CourseID = new SelectList(db.Courses, "CourseID", "CourseNo");
+            ViewBag.InstructorID = new SelectList(db.Instructors, "InstructorID", "FirstName");
             return View();
         }
 
-        // POST: PCNs/Create
+        // POST: PCNssss1/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "PCNID,CourseID,InstructorID,StartDate,EndDate,Description,IsApproved")] PCN pCN)
         {
-
             if (ModelState.IsValid)
             {
                 db.PCNs.Add(pCN);
@@ -75,7 +63,7 @@ namespace FAA.Controllers
             return View(pCN);
         }
 
-        // GET: PCNs/Edit/5
+        // GET: PCNssss1/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -87,12 +75,12 @@ namespace FAA.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.CourseID = new SelectList(db.Courses, "CourseID", "CourseID", pCN.CourseID);
-            ViewBag.InstructorID = new SelectList(db.Instructors, "InstructorID", "InstructorID", pCN.InstructorID);
+            ViewBag.CourseID = new SelectList(db.Courses, "CourseID", "CourseNo", pCN.CourseID);
+            ViewBag.InstructorID = new SelectList(db.Instructors, "InstructorID", "FirstName", pCN.InstructorID);
             return View(pCN);
         }
 
-        // POST: PCNs/Edit/5
+        // POST: PCNssss1/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -110,7 +98,7 @@ namespace FAA.Controllers
             return View(pCN);
         }
 
-        // GET: PCNs/Delete/5
+        // GET: PCNssss1/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -125,7 +113,7 @@ namespace FAA.Controllers
             return View(pCN);
         }
 
-        // POST: PCNs/Delete/5
+        // POST: PCNssss1/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
