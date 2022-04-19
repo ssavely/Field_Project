@@ -31,13 +31,14 @@ namespace FAA.Controllers
 
         public ActionResult Open()
         {
-          
+            var tables = new FAADatabaseClass();
 
-            return View();
-        }
-        public ActionResult Old()
-        {
-            return View();
+            tables.instructors = DB.Instructors.ToList();
+            tables.pcns = DB.PCNs.ToList();
+            tables.courses = DB.Courses.ToList();
+            tables.lessons = DB.Lessons.ToList();
+
+            return View(tables);
         }
         public ActionResult History()
         {

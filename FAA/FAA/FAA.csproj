@@ -237,13 +237,12 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\InstructorCourse.cshtml" />
-    <Content Include="Views\Home\Open.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\Old.cshtml" />
     <Content Include="Views\PCNs\Create.cshtml" />
     <Content Include="Views\PCNs\Edit.cshtml" />
-    <Content Include="Views\PCNs\Index.cshtml" />
+    <Content Include="Views\PCNs\Open.cshtml" />
     <Content Include="Views\Home\History.cshtml" />
+    <Content Include="Views\PCNs\ClosedPCN.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

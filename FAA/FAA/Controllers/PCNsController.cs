@@ -16,10 +16,27 @@ namespace FAA.Controllers
         private DB_128040_faaEntities4 db = new DB_128040_faaEntities4();
 
         // GET: PCNs
-        public ActionResult Index()
+        public ActionResult Open()
         {
-            var pCNs = db.PCNs.Include(p => p.Course).Include(p => p.Instructor);
-            return View(pCNs.ToList());
+            var tables = new FAADatabaseClass();
+
+            tables.instructors = db.Instructors.ToList();
+            tables.pcns = db.PCNs.ToList();
+            tables.courses = db.Courses.ToList();
+            tables.lessons = db.Lessons.ToList();
+
+            return View(tables);
+        }
+        public ActionResult ClosedPCN()
+        {
+            var tables = new FAADatabaseClass();
+
+            tables.instructors = db.Instructors.ToList();
+            tables.pcns = db.PCNs.ToList();
+            tables.courses = db.Courses.ToList();
+            tables.lessons = db.Lessons.ToList();
+
+            return View(tables);
         }
 
         // GET: PCNs/Create
@@ -65,8 +82,8 @@ namespace FAA.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.CourseID = new SelectList(db.Courses, "CourseID", "CourseNo", pCN.CourseID);
-            ViewBag.InstructorID = new SelectList(db.Instructors, "InstructorID", "FirstName", pCN.InstructorID);
+            ViewBag.CourseID = new SelectList(db.Courses, "CourseID", "CourseID", pCN.CourseID);
+            ViewBag.InstructorID = new SelectList(db.Instructors, "InstructorID", "InstructorID", pCN.InstructorID);
             return View(pCN);
         }
 
