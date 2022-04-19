@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="0b532f15fbee468f83e3f1300fe022af" Name="Diagram1">
+      <Diagram DiagramId="42adcbfcb6514383ae70cc8587ab0717" Name="Diagram1">
         <EntityTypeShape EntityType="DB_128040_faaModel.Course" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DB_128040_faaModel.CourseHistory" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
         <EntityTypeShape EntityType="DB_128040_faaModel.Instructor" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
@@ -13,13 +13,15 @@
         <EntityTypeShape EntityType="DB_128040_faaModel.LessonHistory" Width="1.5" PointX="5.25" PointY="7.375" IsExpanded="true" />
         <EntityTypeShape EntityType="DB_128040_faaModel.PCN" Width="1.5" PointX="6" PointY="3.5" IsExpanded="true" />
         <EntityTypeShape EntityType="DB_128040_faaModel.PCNHistory" Width="1.5" PointX="8.25" PointY="4" IsExpanded="true" />
-        <AssociationConnector Association="DB_128040_faaModel.FK__CourseHis__Cours__3E52440B" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_128040_faaModel.FK__Lesson__CourseID__412EB0B6" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_128040_faaModel.FK__PCN__CourseNo__46E78A0C" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_128040_faaModel.FK__Instructo__Instr__267ABA7A" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_128040_faaModel.FK__PCN__InstructorI__47DBAE45" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_128040_faaModel.FK__LessonHis__Lesso__440B1D61" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_128040_faaModel.FK__PCNHistor__PCNID__4AB81AF0" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DB_128040_faaModel.sysdiagram" Width="1.5" PointX="7.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_128040_faaModel.PCN_Audit" Width="1.5" PointX="0.75" PointY="11.125" IsExpanded="true" />
+        <AssociationConnector Association="DB_128040_faaModel.FK__CourseHis__Cours__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_128040_faaModel.FK__Lesson__CourseID__619B8048" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_128040_faaModel.FK__PCN__CourseID__6C190EBB" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_128040_faaModel.FK__Instructo__Instr__693CA210" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_128040_faaModel.FK__PCN__InstructorI__6D0D32F4" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_128040_faaModel.FK__LessonHis__Lesso__6477ECF3" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_128040_faaModel.FK__PCNHistor__PCNID__6FE99F9F" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

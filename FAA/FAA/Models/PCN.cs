@@ -24,9 +24,9 @@ namespace FAA.Models
         public int CourseID { get; set; }
         public int InstructorID { get; set; }
         public System.DateTime StartDate { get; set; }
-        public System.DateTime EndDate { get; set; }
+        public Nullable<System.DateTime> EndDate { get; set; }
         public string Description { get; set; }
-        public bool IsApproved { get; set; }
+        public Nullable<bool> IsApproved { get; set; }
     
         public virtual Course Course { get; set; }
         public virtual Instructor Instructor { get; set; }

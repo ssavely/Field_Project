@@ -23,7 +23,7 @@ namespace FAA.Models
         }
     
         public int CourseID { get; set; }
-        public string CoursNo { get; set; }
+        public string CourseNo { get; set; }
         public string CourseName { get; set; }
         public string Description { get; set; }
         public System.DateTime DateTime { get; set; }

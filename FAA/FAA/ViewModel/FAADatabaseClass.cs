@@ -12,6 +12,7 @@ namespace FAA.ViewModel
         public IEnumerable<PCN> pcns { get; set; }
         public IEnumerable<Course> courses { get; set; }
         public IEnumerable<Lesson> lessons { get; set; }
+        public IEnumerable<PCN_Audit> PCN_Audits { get; set; }
 
     }
 

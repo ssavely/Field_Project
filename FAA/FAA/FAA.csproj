@@ -130,47 +130,54 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PCNsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Course.cs">
-      <DependentUpon>DB_FAA.tt</DependentUpon>
+      <DependentUpon>FAA_Database.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CourseHistory.cs">
-      <DependentUpon>DB_FAA.tt</DependentUpon>
+      <DependentUpon>FAA_Database.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DB_FAA.Context.cs">
+    <Compile Include="Models\FAA_Database.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DB_FAA.Context.tt</DependentUpon>
+      <DependentUpon>FAA_Database.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DB_FAA.cs">
+    <Compile Include="Models\FAA_Database.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DB_FAA.tt</DependentUpon>
+      <DependentUpon>FAA_Database.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DB_FAA.Designer.cs">
+    <Compile Include="Models\FAA_Database.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DB_FAA.edmx</DependentUpon>
+      <DependentUpon>FAA_Database.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Instructor.cs">
-      <DependentUpon>DB_FAA.tt</DependentUpon>
+      <DependentUpon>FAA_Database.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\InstructorHistory.cs">
-      <DependentUpon>DB_FAA.tt</DependentUpon>
+      <DependentUpon>FAA_Database.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Lesson.cs">
-      <DependentUpon>DB_FAA.tt</DependentUpon>
+      <DependentUpon>FAA_Database.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LessonHistory.cs">
-      <DependentUpon>DB_FAA.tt</DependentUpon>
+      <DependentUpon>FAA_Database.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PCN.cs">
-      <DependentUpon>DB_FAA.tt</DependentUpon>
+      <DependentUpon>FAA_Database.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PCNHistory.cs">
-      <DependentUpon>DB_FAA.tt</DependentUpon>
+      <DependentUpon>FAA_Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PCN_Audit.cs">
+      <DependentUpon>FAA_Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>FAA_Database.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\FAADatabaseClass.cs" />
@@ -188,24 +195,24 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\DB_FAA.Context.tt">
+    <Content Include="Models\FAA_Database.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DB_FAA.edmx</DependentUpon>
-      <LastGenOutput>DB_FAA.Context.cs</LastGenOutput>
+      <DependentUpon>FAA_Database.edmx</DependentUpon>
+      <LastGenOutput>FAA_Database.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\DB_FAA.tt">
+    <Content Include="Models\FAA_Database.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DB_FAA.edmx</DependentUpon>
-      <LastGenOutput>DB_FAA.cs</LastGenOutput>
+      <DependentUpon>FAA_Database.edmx</DependentUpon>
+      <LastGenOutput>FAA_Database.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\DB_FAA.edmx">
+    <EntityDeploy Include="Models\FAA_Database.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DB_FAA.Designer.cs</LastGenOutput>
+      <LastGenOutput>FAA_Database.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\DB_FAA.edmx.diagram">
-      <DependentUpon>DB_FAA.edmx</DependentUpon>
+    <Content Include="Models\FAA_Database.edmx.diagram">
+      <DependentUpon>FAA_Database.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -229,10 +236,14 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Create.cshtml" />
+    <Content Include="Views\Home\InstructorCourse.cshtml" />
     <Content Include="Views\Home\Open.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Old.cshtml" />
+    <Content Include="Views\PCNs\Create.cshtml" />
+    <Content Include="Views\PCNs\Edit.cshtml" />
+    <Content Include="Views\PCNs\Index.cshtml" />
+    <Content Include="Views\Home\History.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

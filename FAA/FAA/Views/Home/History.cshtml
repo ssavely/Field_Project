@@ -1,0 +1,42 @@
+﻿@model FAA.ViewModel.FAADatabaseClass
+
+@{
+    ViewBag.Title = "PCN History";
+}
+<h2>PCN History</h2>
+<table class="table">
+    <tr>
+        <th>
+            PCNID
+        </th>
+        <th>
+            Activity
+        </th>
+        <th>
+            Done By
+        </th>
+        <th>
+            Date and Time of Change
+        </th>
+    </tr>
+
+    @foreach (var item in Model.PCN_Audits)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PCNID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Activity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DoneBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date_Time)
+            </td>
+
+        </tr>
+    }
+
+</table>

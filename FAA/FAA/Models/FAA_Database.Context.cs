@@ -13,10 +13,10 @@ namespace FAA.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DB_128040_faaEntities3 : DbContext
+    public partial class DB_128040_faaEntities4 : DbContext
     {
-        public DB_128040_faaEntities3()
-            : base("name=DB_128040_faaEntities3")
+        public DB_128040_faaEntities4()
+            : base("name=DB_128040_faaEntities4")
         {
         }
     
@@ -33,5 +33,7 @@ namespace FAA.Models
         public virtual DbSet<LessonHistory> LessonHistories { get; set; }
         public virtual DbSet<PCN> PCNs { get; set; }
         public virtual DbSet<PCNHistory> PCNHistories { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<PCN_Audit> PCN_Audit { get; set; }
     }
 }
