@@ -79,6 +79,7 @@ warning 6002: The table/view 'DB_128040_faa.dbo.PCN_Audit' does not have a prima
     <Property Name="PCNID" Type="int" />
     <Property Name="Activity" Type="varchar" MaxLength="20" />
     <Property Name="DoneBy" Type="varchar" MaxLength="50" />
+    <Property Name="Description" Type="varchar" MaxLength="250" />
     <Property Name="Date_Time" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="PCNHistory">
@@ -199,6 +200,7 @@ warning 6002: The table/view 'DB_128040_faa.dbo.PCN_Audit' does not have a prima
     [PCN_Audit].[PCNID] AS [PCNID], 
     [PCN_Audit].[Activity] AS [Activity], 
     [PCN_Audit].[DoneBy] AS [DoneBy], 
+    [PCN_Audit].[Description] AS [Description], 
     [PCN_Audit].[Date_Time] AS [Date_Time]
     FROM [dbo].[PCN_Audit] AS [PCN_Audit]</DefiningQuery>
     </EntitySet>

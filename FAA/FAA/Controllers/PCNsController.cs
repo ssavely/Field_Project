@@ -13,7 +13,7 @@ namespace FAA.Controllers
 {
     public class PCNsController : Controller
     {
-        private DB_128040_faaEntities4 db = new DB_128040_faaEntities4();
+        private DB_128040_faaEntities5 db = new DB_128040_faaEntities5();
 
         // GET: PCNs
         public ActionResult Index()

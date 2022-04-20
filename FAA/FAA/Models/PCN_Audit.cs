@@ -17,6 +17,7 @@ namespace FAA.Models
         public Nullable<int> PCNID { get; set; }
         public string Activity { get; set; }
         public string DoneBy { get; set; }
+        public string Description { get; set; }
         public System.DateTime Date_Time { get; set; }
     }
 }

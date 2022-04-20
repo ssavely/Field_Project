@@ -10,11 +10,18 @@ namespace FAA.Controllers
 {
     public class HomeController : Controller
     {
-        private DB_128040_faaEntities4 DB = new DB_128040_faaEntities4();
+        private DB_128040_faaEntities5 DB = new DB_128040_faaEntities5();
 
         public ActionResult Index()
         {
-            return View();
+            var tables = new FAADatabaseClass();
+
+            tables.instructors = DB.Instructors.ToList();
+            tables.pcns = DB.PCNs.ToList();
+            tables.courses = DB.Courses.ToList();
+            tables.lessons = DB.Lessons.ToList();
+
+            return View(tables);
         }
 
         public ActionResult InstructorCourse()

@@ -110,6 +110,7 @@
     <Property Name="PCNID" Type="Int32" />
     <Property Name="Activity" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="DoneBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
     <Property Name="Date_Time" Type="DateTime" Nullable="false" Precision="3" />
   </EntityType>
   <Association Name="FK__CourseHis__Cours__5EBF139D">
@@ -196,7 +197,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="DB_128040_faaEntities4" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="DB_128040_faaEntities5" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Courses" EntityType="Self.Course" />
     <EntitySet Name="CourseHistories" EntityType="Self.CourseHistory" />
     <EntitySet Name="Instructors" EntityType="Self.Instructor" />

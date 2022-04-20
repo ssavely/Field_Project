@@ -35,7 +35,7 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.CourseID)
+                <center>@Html.DisplayFor(modelItem => item.CourseID)</center>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.StartDate)
@@ -50,10 +50,10 @@
                 @Html.DisplayFor(modelItem => item.IsApproved)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Course.CourseID)
+                <center>@Html.DisplayFor(modelItem => item.Course.CourseID)</center>
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Instructor.InstructorID)
+                <center>@Html.DisplayFor(modelItem => item.Instructor.InstructorID)</center>
             </td>
         </tr>
     }

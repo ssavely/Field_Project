@@ -18,13 +18,16 @@
         <th>
             Date and Time of Change
         </th>
+        <th>
+            Description
+        </th>
     </tr>
 
     @foreach (var item in Model.PCN_Audits)
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.PCNID)
+                <center>@Html.DisplayFor(modelItem => item.PCNID)</center>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Activity)
@@ -34,6 +37,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Date_Time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
             </td>
 
         </tr>

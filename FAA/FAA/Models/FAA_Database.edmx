@@ -84,6 +84,7 @@ warning 6002: The table/view 'DB_128040_faa.dbo.PCN_Audit' does not have a prima
           <Property Name="PCNID" Type="int" />
           <Property Name="Activity" Type="varchar" MaxLength="20" />
           <Property Name="DoneBy" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="varchar" MaxLength="250" />
           <Property Name="Date_Time" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="PCNHistory">
@@ -204,6 +205,7 @@ warning 6002: The table/view 'DB_128040_faa.dbo.PCN_Audit' does not have a prima
     [PCN_Audit].[PCNID] AS [PCNID], 
     [PCN_Audit].[Activity] AS [Activity], 
     [PCN_Audit].[DoneBy] AS [DoneBy], 
+    [PCN_Audit].[Description] AS [Description], 
     [PCN_Audit].[Date_Time] AS [Date_Time]
     FROM [dbo].[PCN_Audit] AS [PCN_Audit]</DefiningQuery>
           </EntitySet>
@@ -351,6 +353,7 @@ warning 6002: The table/view 'DB_128040_faa.dbo.PCN_Audit' does not have a prima
           <Property Name="PCNID" Type="Int32" />
           <Property Name="Activity" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="DoneBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="Date_Time" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
         <Association Name="FK__CourseHis__Cours__5EBF139D">
@@ -437,7 +440,7 @@ warning 6002: The table/view 'DB_128040_faa.dbo.PCN_Audit' does not have a prima
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DB_128040_faaEntities4" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="DB_128040_faaEntities5" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Courses" EntityType="Self.Course" />
           <EntitySet Name="CourseHistories" EntityType="Self.CourseHistory" />
           <EntitySet Name="Instructors" EntityType="Self.Instructor" />
@@ -482,7 +485,7 @@ warning 6002: The table/view 'DB_128040_faa.dbo.PCN_Audit' does not have a prima
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DB_128040_faaModelStoreContainer" CdmEntityContainer="DB_128040_faaEntities4">
+        <EntityContainerMapping StorageEntityContainer="DB_128040_faaModelStoreContainer" CdmEntityContainer="DB_128040_faaEntities5">
           <EntitySetMapping Name="Courses">
             <EntityTypeMapping TypeName="DB_128040_faaModel.Course">
               <MappingFragment StoreEntitySet="Course">
@@ -587,6 +590,7 @@ warning 6002: The table/view 'DB_128040_faa.dbo.PCN_Audit' does not have a prima
                 <ScalarProperty Name="PCNID" ColumnName="PCNID" />
                 <ScalarProperty Name="Activity" ColumnName="Activity" />
                 <ScalarProperty Name="DoneBy" ColumnName="DoneBy" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Date_Time" ColumnName="Date_Time" />
               </MappingFragment>
             </EntityTypeMapping>

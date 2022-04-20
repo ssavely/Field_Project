@@ -13,10 +13,10 @@ namespace FAA.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DB_128040_faaEntities4 : DbContext
+    public partial class DB_128040_faaEntities5 : DbContext
     {
-        public DB_128040_faaEntities4()
-            : base("name=DB_128040_faaEntities4")
+        public DB_128040_faaEntities5()
+            : base("name=DB_128040_faaEntities5")
         {
         }
     
