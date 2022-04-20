@@ -131,7 +131,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PCNsController.cs" />
-    <Compile Include="Controllers\PCNssss1Controller.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -244,11 +243,6 @@
     <Content Include="Views\PCNs\Open.cshtml" />
     <Content Include="Views\Home\History.cshtml" />
     <Content Include="Views\PCNs\ClosedPCN.cshtml" />
-    <Content Include="Views\PCNssss1\Create.cshtml" />
-    <Content Include="Views\PCNssss1\Delete.cshtml" />
-    <Content Include="Views\PCNssss1\Details.cshtml" />
-    <Content Include="Views\PCNssss1\Edit.cshtml" />
-    <Content Include="Views\PCNssss1\Index.cshtml" />
     <Content Include="Views\PCNs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
