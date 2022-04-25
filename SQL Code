@@ -1,0 +1,245 @@
+Team 2: Code for inserting data and creating table
+
+
+INSERT INTO PCN([CourseID], [InstructorID],[StartDate],[EndDate],[Description],[IsApproved]) 
+VALUES
+(1, 1,'04/12/2022','04/22/2022','Went over changes', 1),
+(2, 3,'02/22/2021','04/11/2021','Went over changes', 1),
+(3, 2,'01/23/2020','03/05/2020','Went over changes', 1),
+(4, 6,'07/03/2022','08/30/2022','Went over changes', 1)
+;
+
+Insert Into PCNHistory (
+
+
+COURSE DATA
+
+INSERT INTO Course([CourseNo], [CourseName],[Description],[DateTime]) 
+VALUES
+(10501, 'Facility Instructor training','This is for the instructors teaching Inst Training','04/12/2022'),
+
+(10502, 'International Instructor Training','This is for the instructors teaching Inst Training','06/20/2022'),
+
+(10513, 'Instructional Testing','This is for the instructors teaching Inst Training','01/1/2022'),
+
+(10520, 'Basic Instructor Training','This is for the instructors teaching Inst Training','07/20/2016');
+
+
+COURSE HISTORY DATA
+Select *
+From CourseHistory
+
+INSERT INTO CourseHistory (ChangeDate, Description)
+VALUES
+(‘02/11/2017’, ‘This is for the instructors teaching inst training’),
+(‘04/14/2019’, ‘PCN was finished’),
+(‘07/18/2020’, ‘Course revision made’),
+(‘06/20/2012’, ‘Revision complete’);
+
+
+INSTRUCTOR DATA
+INSERT INTO Instructor (FirstName, LastName, Email, Role, Level)
+VALUES
+('Rich', 'Schrum', 'rich.schrum@faa.gov', 'T3 PM', 'Power User'),
+('Cassandra', 'Hughes', 'cassandra.hughes@faa.gov', 'ISS/CM', 'Standard User'),
+('Jeff', 'Fluker', 'jeff.fluker@faa.gov', 'ISS/CM', 'Standard User'),
+('Mike', 'Sazma', 'michael.sazma@faa.gov', 'ISS/CM', 'Standard User'),
+('Dennis', 'Collins', 'dennis.collins@faa.gov', 'ISS/CM', 'Standard User'),
+('Jason', 'Jack', 'jason.ctr.jack@faa.gov', 'ISS', 'Standard User'),
+('Jo', 'Jones', 'jo.jones@faa.gov', 'CS&P', 'Super User'),
+('James', 'Smith', 'je.smith@faa.gov', 'BM', 'Super User');
+
+InstructorHistory Data
+INSERT INTO InstructorHistory (InstructorID, Description, ChangeDate)
+VALUES
+(‘1’, ‘Changed’, ‘04/15/2019’)
+
+
+Lesson Data
+INSERT INTO Lesson (CourseID, LessonTitle, LessonTag, LessonNo)
+VALUES
+(1, 'Introduction and Overview', 'INT', 1),
+(1, 'End of Lesson Test', 'ELT', 8),
+(2, 'Job Centered Training', 'JCT', 2),
+(2, 'Motivating Adult Learners', 'MOT', 5),
+(3, 'Testing Definitions, Functions, and Characteristics', 'TDC', 3),
+(3, 'Test Statistics', 'TST', 7),
+(4, 'Engaging Your Audience', 'ENG', 5),
+(4, 'Objectives: The Goal of Training', 'GOAL', 10);
+
+INSERT INTO LessonHistory (LessonID,ChangeDate, Description)
+VALUES
+(1,'08/11/2019', 'This is for the instructors teaching inst training'),
+(2,'09/14/2020', 'This is for the instructors teaching inst training'),
+(3,'12/21/2021', 'This is for the instructors teaching inst training'),
+(3,'02/11/2022', 'This is for the instructors teaching inst training')
+;
+
+
+PCN Table Code:
+CREATE TABLE PCN
+(PCNID int IDENTITY(1,1) Primary Key,
+CourseID int FOREIGN KEY references Course Not Null,
+InstructorID int FOREIGN KEY references instructor Not Null,
+StartDate date Not Null,
+EndDate date Not Null,
+Description varchar(255) Not Null,
+IsApproved bit not null
+);
+PCN History Table Code:
+CREATE TABLE PCNHistory
+(PHID int IDENTITY(1,1) Primary Key,
+PCNID int FOREIGN KEY references PCN Not Null,
+ChangeDate date Not Null,
+Description varchar(255) Not Null
+);
+
+Instructor Table Code: 
+CREATE TABLE Instructor
+
+(InstructorID int IDENTITY(1,1) Primary Key,
+
+FirstName Varchar(20) Not Null,
+
+LastName Varchar(20) Not Null,
+
+Email Varchar(50) not Null,
+
+Role Varchar(20) Not Null,
+
+Level Varchar(20) Not Null);
+
+
+InstructorHistory Table Code
+
+CREATE TABLE InstructorHistory
+ 
+( IHID int IDENTITY (1,1) Primary Key,
+ 
+InstructorID int FOREIGN KEY references Instructor Not Null,
+ 
+Description Varchar(255) Not Null,
+ 
+ChangeDate date Not Null);
+
+
+Course Table Code:
+
+Create Table Course
+
+(CourseID int IDENTITY (1,1) Primary Key ,
+CourseNo varchar(10) not null,
+
+CourseName varchar (100) not null,
+
+Description varchar(255) not null,
+
+DateTime date not null);
+
+Course History Table:
+Create Table CourseHistory 
+
+(CHID int IDENTITY (1,1) Primary Key ,
+
+CourseID int Foreign Key References Course Not Null,
+
+Description varchar(255) not null,
+
+ChangeDate date not null);
+
+
+
+
+
+
+
+Lesson Table Code
+Create Table Lesson ( 	
+LessonID int IDENTITY (1,1) Primary Key, 
+	
+CourseID int FOREIGN KEY references Course Not Null, 
+	
+LessonTitle varchar(100) Not Null, 
+	
+LessonTag varchar(100) Not Null, 
+	
+LessonNo varchar (100) Not Null); :
+
+ 
+	
+
+ 
+Lesson history table:
+ 
+Create table LessonHistory
+ 
+(LHID int IDENTITY (1,1) Primary key,
+ 
+LessonID int FOREIGN KEY references Lesson Not Null,
+ 
+ChangeDate date Not Null,
+ 
+Description Varchar(255) Not Null);
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+SQL Triggers for Table and EvenData function:
+ 
+Step 1:
+Creating the trigger and selecting event data function to store changes in XML format:
+ 
+CREATE TRIGGER tr_AuditTableChanges 
+ON ALL SERVER
+FOR CREATE_TABLE, ALTER_TABLE, DROP_TABLE
+AS
+BEGIN
+	Select EVENTDATA()
+END
+ 
+Step 2:
+Creating the table that will store the table changes:
+ 
+CREATE table TableChanges
+(
+	DatabaseName varchar(250),
+	TableName varchar(250),
+	EventType varchar(250),
+	LoginName varchar(250),
+	SQLCommand varchar(2500),
+	AuditDateTime datetime
+)
+GO
+ 
+Step 3:
+Alter the trigger so that the EventData is converted from XML to appropriate datatype in the table (TableChanges):
+ 
+ALTER TRIGGER tr_AuditTableChanges 
+ON ALL SERVER
+FOR CREATE_TABLE, ALTER_TABLE, DROP_TABLE
+AS
+BEGIN
+	DECLARE @EventData XML
+	Select @EventData = EVENTDATA()
+ 
+	INSERT INTO master.dbo.TableChanges
+	(DatabaseName, TableName, EventType, LoginName, SQLCommand, AuditDateTime)
+	VALUES 
+	(
+		@EventData.value('(/EVENT_INSTANCE/DatabaseName)[1]', 'varchar(250)'),
+		@EventData.value('(/EVENT_INSTANCE/ObjectName)[1]', 'varchar(250)'),
+		@EventData.value('(/EVENT_INSTANCE/EventType)[1]', 'varchar(250)'),
+		@EventData.value('(/EVENT_INSTANCE/LoginName)[1]', 'varchar(250)'),
+		@EventData.value('(/EVENT_INSTANCE/TSQLCommand)[1]', 'varchar(2500)'),
+		GetDate()
+	)
+END
+ 
+
+
